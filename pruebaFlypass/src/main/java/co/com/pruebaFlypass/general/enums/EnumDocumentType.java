@@ -8,9 +8,9 @@ import java.util.List;
 
 
 public enum EnumDocumentType {
-	CC(1,  "Cédula de ciudadanía"),
-	CE(2, "Cédula de extranjería"),
-	NIT(3,   "Nit");
+	CC(0,  "Cédula de ciudadanía"),
+	CE(1, "Cédula de extranjería"),
+	NIT(2,   "Nit");
 
 	private int id;
 	private String description;

@@ -9,6 +9,7 @@ import java.util.Date;
 @Getter
 public class ClientDTO extends DTO{
 
+
     private Integer documentType;
 
     private Integer documentNum;

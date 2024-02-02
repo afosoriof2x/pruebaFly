@@ -2,6 +2,7 @@ package co.com.pruebaFlypass.controller;
 
 import co.com.pruebaFlypass.dto.ClientDTO;
 import co.com.pruebaFlypass.Response;
+import co.com.pruebaFlypass.general.exception.AppException;
 import co.com.pruebaFlypass.service.ClientService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.logging.log4j.LogManager;
@@ -29,7 +30,7 @@ public class ClientRest {
     }
 
     @PostMapping()
-    public Response<Object> post(@RequestBody ClientDTO clientDTO){
+    public Response<Object> post(@RequestBody ClientDTO clientDTO) throws AppException {
 
         clientService.save(clientDTO);
         logger.info("Name:, {}", clientDTO.getName());

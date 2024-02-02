@@ -8,8 +8,8 @@ import java.util.List;
 
 
 public enum EnumProductType {
-	AHORROS(1, "Ahorros"),
-	CORRIENTE(2, "Corriente");
+	AHORROS(0, "Ahorros"),
+	CORRIENTE(1, "Corriente");
 
 	private int id;
 	private String descripcion;
@@ -57,7 +57,6 @@ public enum EnumProductType {
 
 	public static List<ProductTypeDTO> getListDTO(){
 
-		List<EnumProductType> list = findAll();
 		List<ProductTypeDTO> returnList = new ArrayList<>();
 
 		for (EnumProductType enumProductType : EnumProductType.values()) {

@@ -16,9 +16,7 @@ public class ProductDTO extends DTO{
 
     private Integer productType;
 
-    private Integer productNum;
-
-    private String estatus;
+    private Integer status;
 
     private String balance;
 
@@ -26,6 +24,6 @@ public class ProductDTO extends DTO{
 
     private Date creationDate;
 
-    private long client;
+    private Long client;
 
 }

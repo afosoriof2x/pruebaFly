@@ -4,6 +4,7 @@ package co.com.pruebaFlypass.model;
 import co.com.pruebaFlypass.dto.ClientDTO;
 import co.com.pruebaFlypass.dto.ProductDTO;
 import co.com.pruebaFlypass.general.enums.EnumDocumentType;
+import co.com.pruebaFlypass.general.enums.EnumProductStatus;
 import co.com.pruebaFlypass.general.enums.EnumProductType;
 import co.com.pruebaFlypass.general.utils.BooleanToStringConverter;
 import jakarta.persistence.*;
@@ -25,10 +26,11 @@ public class Product extends Model<ProductDTO> {
 	private EnumProductType productType;
 
 	@Column(name = "DSNRO_CUENTA")
-	private Integer productNum;
+	private String productNum;
 
+	@Enumerated
 	@Column(name = "CDESTADO")
-	private String estatus;
+	private EnumProductStatus estatus;
 
 	@Column(name = "DSSALDO")
 	private String balance;
@@ -68,19 +70,19 @@ public class Product extends Model<ProductDTO> {
 		this.productType = productType;
 	}
 
-	public Integer getProductNum() {
+	public String getProductNum() {
 		return productNum;
 	}
 
-	public void setProductNum(Integer productNum) {
+	public void setProductNum(String productNum) {
 		this.productNum = productNum;
 	}
 
-	public String getEstatus() {
+	public EnumProductStatus getEstatus() {
 		return estatus;
 	}
 
-	public void setEstatus(String estatus) {
+	public void setEstatus(EnumProductStatus estatus) {
 		this.estatus = estatus;
 	}
 
