@@ -6,7 +6,6 @@ import co.com.pruebaFlypass.dto.DocumentTypeDTO;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public enum EnumDocumentType {
 	CC(0,  "Cédula de ciudadanía"),
 	CE(1, "Cédula de extranjería"),

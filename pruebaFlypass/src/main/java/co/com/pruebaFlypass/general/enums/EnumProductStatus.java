@@ -1,8 +1,6 @@
 
 package co.com.pruebaFlypass.general.enums;
 
-import co.com.pruebaFlypass.dto.ProductTypeDTO;
-
 import java.util.ArrayList;
 import java.util.List;
 
