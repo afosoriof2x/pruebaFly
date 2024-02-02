@@ -1,0 +1,36 @@
+info:
+  component: pruebaFlypass
+
+server:
+  servlet:
+    context-path: "/pruebaFlypass"
+  port: 9103
+
+spring:
+  application:
+    name: pruebaFlypass
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8888
+      failFast: true
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/prueba
+    username: root
+    password: password
+    driver-class-name: com.mysql.jdbc.Driver
+    connection-test-query: "SELECT 1"
+    test-while-idle: true
+    test-on-borrow: true
+  jpa:
+    hibernate:
+      database-platform: org.hibernate.dialect.MySQLDialect
+      use-new-id-generator-mappings: false
+    show-sql: true
+    jpa:
+      hibernate:
+        database-platform: org.hibernate.dialect.MySQLDialect
+        use-new-id-generator-mappings: false
+
+endpoints:
+  enabled: false
