@@ -17,6 +17,7 @@ public class AppException extends Exception {
     private static final Logger logger = LogManager.getLogger(AppException.class);
 
     private String msg;
+    private String tecnicalMsg;
 
     @Autowired
     private MessageSource messageSource;
@@ -24,6 +25,12 @@ public class AppException extends Exception {
     public AppException(String message) {
         this.msg = message;
         logger.error(message);
+    }
+
+    public AppException(String message, String tecnicalMsg) {
+        this.msg = message;
+        this.tecnicalMsg = tecnicalMsg;
+        logger.error(tecnicalMsg);
     }
 
     public AppException() {
@@ -44,5 +51,9 @@ public class AppException extends Exception {
 
     public String getExceptionMessage() {
         return this.msg != null ? this.msg : messageSource.getMessage("validationError", null, LocaleContextHolder.getLocale());
+    }
+
+    public String getExceptionTecnicalMessage() {
+        return this.tecnicalMsg;
     }
 }
