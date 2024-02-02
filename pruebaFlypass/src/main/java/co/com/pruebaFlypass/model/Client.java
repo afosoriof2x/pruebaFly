@@ -105,6 +105,12 @@ public class Client extends Model<ClientDTO> {
 
 	@Override
 	public Class<ClientDTO> getDtoClass() {
-		return null;
+		return ClientDTO.class;
+	}
+
+	@Override
+	public ClientDTO getDto(){
+		ClientDTO dto = super.getDto();
+		return dto;
 	}
 }

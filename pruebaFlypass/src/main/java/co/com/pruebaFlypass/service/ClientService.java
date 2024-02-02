@@ -3,16 +3,19 @@ package co.com.pruebaFlypass.service;
 import co.com.pruebaFlypass.dto.ClientDTO;
 import co.com.pruebaFlypass.factory.ClientFactory;
 import co.com.pruebaFlypass.general.exception.AppException;
+import co.com.pruebaFlypass.model.Client;
 import co.com.pruebaFlypass.repository.ClientRepository;
 import co.com.pruebaFlypass.general.utils.Utils;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Service
 public class ClientService {
 
     private final ClientRepository clientRepository;
-
     private final static Integer MAYORIA_EDAD = 18;
 
     public ClientService(ClientRepository clientRepository) {
@@ -65,5 +68,18 @@ public class ClientService {
         if(clientDTO.getSurname().length() < 2){
             throw new AppException("El apellido NO puede ser menor a 2 caracteres.");
         }
+    }
+
+    public List<ClientDTO> getClients() {
+
+        Iterable<Client> list = clientRepository.findAll();
+        List<ClientDTO> clientList = new ArrayList<>();
+
+        list.forEach(client->{
+            ClientDTO dto = client.getDto();
+            clientList.add(dto);
+
+        });
+        return clientList;
     }
 }

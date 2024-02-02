@@ -1,15 +1,15 @@
 package co.com.pruebaFlypass.controller;
 
-import co.com.pruebaFlypass.Response;
-import co.com.pruebaFlypass.dto.ClientDTO;
+import co.com.pruebaFlypass.general.Response;
 import co.com.pruebaFlypass.dto.ProductDTO;
 import co.com.pruebaFlypass.general.exception.AppException;
-import co.com.pruebaFlypass.service.ClientService;
 import co.com.pruebaFlypass.service.ProductService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/product")
@@ -24,11 +24,10 @@ public class ProductRest {
     }
 
     @GetMapping(value = "/{id}")
-    public Response<Object> get(@PathVariable String id){
-        logger.info("ID:, {}",id);
-        ProductDTO productDTO = new ProductDTO();
+    public Response<Object> get(@PathVariable Long id){
 
-        return new Response<>(HttpServletResponse.SC_OK, "", productDTO);
+        List<ProductDTO> productList = productService.getProductsById(id);
+        return new Response<>(HttpServletResponse.SC_OK, "", productList);
     }
 
     @PostMapping()

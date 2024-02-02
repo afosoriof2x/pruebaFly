@@ -1,4 +1,4 @@
-package co.com.pruebaFlypass;
+package co.com.pruebaFlypass.general;
 
 import lombok.Data;
 import org.springframework.http.HttpStatus;

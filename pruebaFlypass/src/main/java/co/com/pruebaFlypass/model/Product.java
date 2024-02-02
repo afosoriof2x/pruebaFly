@@ -115,4 +115,10 @@ public class Product extends Model<ProductDTO> {
 	public Class<ProductDTO> getDtoClass() {
 		return ProductDTO.class;
 	}
+
+	@Override
+	public ProductDTO getDto(){
+		ProductDTO dto = super.getDto();
+		return dto;
+	}
 }
